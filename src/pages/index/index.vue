@@ -4,12 +4,17 @@
     <view>
       <text class="title">{{ title }}</text>
       <button type="primary" @click="handleClick">点击我</button>
+      <ViSwiper></ViSwiper>
     </view>
   </view>
 </template>
 
 <script>
+import ViSwiper from "../../components/ViSwiper.vue";
 export default {
+  components: {
+    ViSwiper,
+  },
   data() {
     return {
       title: "Hello today",

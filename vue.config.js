@@ -5,9 +5,11 @@ module.exports = {
   css: {
     loaderOptions: {
       less: {
-        globalVars: {
-          javascriptEnabled: true,
-          hack: `true; @import "${stylePath}";`,
+        javascriptEnabled: true,
+        modifyVars: {
+          hack: `true; @import "${path
+            .resolve(process.cwd(), "./src")
+            .replace(/\\/g, "\\\\")}/uni.less";`,
         },
       },
     },
