@@ -1,32 +1,6 @@
 <template>
-  <view class="content">
-    <!-- 本示例未包含完整css，获取外链css请参考上文，在hello uni-app项目中查看 -->
-    <view>
-      <view class="uni-margin-wrap">
-        <swiper
-          class="swiper"
-          circular
-          :indicator-dots="indicatorDots"
-          :autoplay="autoplay"
-          :interval="interval"
-          :duration="duration"
-        >
-          <swiper-item>
-            <view class="swiper-item uni-bg-red">A</view>
-          </swiper-item>
-          <swiper-item>
-            <view class="swiper-item uni-bg-green">B</view>
-          </swiper-item>
-          <swiper-item>
-            <view class="swiper-item uni-bg-blue">C</view>
-          </swiper-item>
-        </swiper>
-      </view>
-    </view>
-
+  <view class="vi-swiper-content">
     <swiper
-      class="logo"
-      autoplay
       interval="3000"
       duration="500"
       previous-margin="50rpx"
@@ -39,20 +13,21 @@
       @animationfinish="onAnimationfinish"
     >
       <swiper-item>
-        <image :src="Img" mode="aspectFit" />
+        <image :src="banner01" mode="aspectFit" />
       </swiper-item>
       <swiper-item>
-        <image
-          src="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/shuijiao.jpg"
-          mode="aspectFill"
-        />
+        <image :src="banner02" mode="aspectFit" />
+      </swiper-item>
+      <swiper-item>
+        <image :src="banner03" mode="aspectFit" />
       </swiper-item>
     </swiper>
   </view>
 </template>
 
 <script>
-import Img from "@/static/cat.jpeg";
+import Banner03 from "../static/800x350-03.jpg";
+
 export default {
   props: {
     swiperList: {
@@ -67,31 +42,21 @@ export default {
       autoplay: true,
       interval: 2000,
       duration: 500,
+      banner01: require("../static/800x350-01.jpg"),
+      banner02: require("../static/800x350-02.jpeg"),
+      banner03: Banner03,
     };
   },
 
   methods: {
     onAnimationfinish(e) {
-      console.log("current swiper index:", e.detail.current);
+      // console.log("current swiper index:", e.detail.current);
     },
   },
 };
 </script>
 
-<style scoped>
-.uni-margin-wrap {
-  width: 690rpx;
-  /* width: 100%; */
-}
-.swiper {
-  height: 300rpx;
-}
-.swiper-item {
-  display: block;
-  height: 300rpx;
-  line-height: 300rpx;
-  text-align: center;
-}
+<style scoped lang="less">
 .swiper-list {
   margin-top: 40rpx;
   margin-bottom: 0;
@@ -107,14 +72,5 @@ export default {
 .uni-padding-wrap {
   width: 550rpx;
   padding: 0 100rpx;
-}
-.uni-bg-red {
-  background-color: #ff4544;
-}
-.uni-bg-green {
-  background-color: #00ff00;
-}
-.uni-bg-blue {
-  background-color: #007aff;
 }
 </style>

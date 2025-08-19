@@ -4,16 +4,25 @@
     <view>
       <text class="title">{{ title }}</text>
       <button type="primary" @click="handleClick">点击我</button>
-      <ViSwiper></ViSwiper>
+    </view>
+    <view class="width-fit">
+      <!-- <SwiperA></SwiperA> -->
+      <!-- <ViSwiper></ViSwiper> -->
+      <ViSwiperPlus></ViSwiperPlus>
     </view>
   </view>
 </template>
 
 <script>
+import SwiperA from "../../components/SwiperA.vue";
 import ViSwiper from "../../components/ViSwiper.vue";
+import ViSwiperPlus from "../../components/ViSwiperPlus.vue";
+
 export default {
   components: {
     ViSwiper,
+    ViSwiperPlus,
+    SwiperA,
   },
   data() {
     return {
@@ -65,4 +74,8 @@ export default {
   font-size: 36rpx;
   color: #8f8f94;
 }
+
+/* .width-fit {
+  width: 100%;
+} */
 </style>
