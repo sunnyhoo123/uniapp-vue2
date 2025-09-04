@@ -3,12 +3,19 @@
     <image class="logo" src="/static/logo.png"></image>
     <view>
       <text class="title">{{ title }}</text>
+      <image
+        src="https://qiniu-web-assets.dcloud.net.cn/unidoc/zh/shuijiao.jpg"
+        mode=""
+        :show-menu-by-longpress="true"
+      ></image>
+      <view>长按识别微信</view>
       <button type="primary" @click="handleClick">点击我</button>
     </view>
     <view class="width-fit">
-      <!-- <SwiperA></SwiperA> -->
+      <SwiperA></SwiperA>
       <!-- <ViSwiper></ViSwiper> -->
       <ViSwiperPlus></ViSwiperPlus>
+      <Custom></Custom>
     </view>
   </view>
 </template>
@@ -17,12 +24,14 @@
 import SwiperA from "../../components/SwiperA.vue";
 import ViSwiper from "../../components/ViSwiper.vue";
 import ViSwiperPlus from "../../components/ViSwiperPlus.vue";
+import Custom from "../../components/Custom.vue";
 
 export default {
   components: {
     ViSwiper,
     ViSwiperPlus,
     SwiperA,
+    Custom,
   },
   data() {
     return {

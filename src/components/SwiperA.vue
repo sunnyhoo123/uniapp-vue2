@@ -8,14 +8,10 @@
       :interval="interval"
       :duration="duration"
     >
-      <swiper-item>
-        <view class="swiper-item uni-bg-red">A</view>
-      </swiper-item>
-      <swiper-item>
-        <view class="swiper-item uni-bg-green">B</view>
-      </swiper-item>
-      <swiper-item>
-        <view class="swiper-item uni-bg-blue">C</view>
+      <swiper-item v-for="(item, index) in bannerList" :key="index">
+        <view :class="['swiper-item', item.class]" @tap="handleClick">{{
+          item.label
+        }}</view>
       </swiper-item>
     </swiper>
   </view>
@@ -29,17 +25,41 @@ export default {
       default: () => [],
     },
   },
+  computed: {
+    bannerList() {
+      return this.swiperList.length ? this.swiperList : this.backgroundList;
+    },
+  },
   data() {
     return {
-      background: ["color1", "color2", "color3"],
+      backgroundList: [
+        { value: "color1", label: "color1", class: "uni-bg-red" },
+        { value: "color2", label: "color2", class: "uni-bg-green" },
+        { value: "color3", label: "color3", class: "uni-bg-blue" },
+      ],
       indicatorDots: true,
-      autoplay: true,
+      autoplay: false,
       interval: 2000,
       duration: 500,
     };
   },
 
   methods: {
+    handleClick(event) {
+      const { item = {} } = event.currentTarget.dataset;
+      const { item2 = {} } = event.target.dataset;
+      console.log(
+        "点击了轮播图",
+        event.target,
+        event.currentTarget,
+        item,
+        item2
+      );
+      uni.showToast({
+        title: "点击了轮播图",
+        icon: "none",
+      });
+    },
     // onAnimationfinish(e) {
     //   console.log("current swiper index:", e.detail.current);
     // },
