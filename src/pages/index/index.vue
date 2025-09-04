@@ -8,9 +8,10 @@
         mode=""
         :show-menu-by-longpress="true"
       ></image>
-      <view>长按识别微信</view>
+      <view>长按识别微信3</view>
       <button type="primary" @click="handleClick">点击我</button>
     </view>
+    <input :adjust-position="true" placeholder="请输入" ></input>
     <view class="width-fit">
       <SwiperA></SwiperA>
       <!-- <ViSwiper></ViSwiper> -->
